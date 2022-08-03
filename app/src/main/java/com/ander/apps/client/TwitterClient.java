@@ -2,7 +2,7 @@ package com.ander.apps.client;
 
 import android.content.Context;
 
-import com.codepath.apps.andertweets.R;
+import com.ander.apps.client.R;
 import com.codepath.asynchttpclient.RequestParams;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 import com.codepath.oauth.OAuthBaseClient;
@@ -23,7 +23,7 @@ import com.github.scribejava.core.builder.api.BaseApi;
  */
 public class TwitterClient extends OAuthBaseClient {
 	public static final BaseApi REST_API_INSTANCE = TwitterApi.instance();
-	public static final String REST_URL = "https://api.twitter.com/2";
+	public static final String REST_URL = "https://api.twitter.com/1.1";
 	public static final String REST_CONSUMER_KEY = "6WCIKwUVHSPUSIoN5Hpmux5Jb";       // Change this inside apikey.properties
 	public static final String REST_CONSUMER_SECRET = "nFQe87qFzDpZCx474rw8k6cQlxEUeMSpXmLTl44eNj0fR5sDDb"; // Change this inside apikey.properties
 

@@ -2,11 +2,12 @@ package com.ander.apps.client;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Toast;
 
-import com.codepath.apps.andertweets.R;
+import com.ander.apps.client.R;
 import com.ander.apps.client.models.SampleModel;
 import com.ander.apps.client.models.SampleModelDao;
 import com.codepath.oauth.OAuthLoginActionBarActivity;
@@ -45,7 +46,7 @@ public class LoginActivity extends OAuthLoginActionBarActivity<TwitterClient> {
 	// i.e Display application "homepage"
 	@Override
 	public void onLoginSuccess() {
-		Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
+		Log.i("lonelyness", "login success");
 		// Intent i = new Intent(this, PhotosActivity.class);
 		// startActivity(i);
 	}
