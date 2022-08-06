@@ -16,6 +16,7 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.Viewholder>{
@@ -50,6 +51,18 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.Viewholder
         return tweets.size();
     }
 
+    // Clean all elements of the recycler
+    public void clear() {
+        tweets.clear();
+        notifyDataSetChanged();
+    }
+
+    // Add a list of items -- change to type used
+    public void addAll(List<Tweet> tweetList) {
+        tweets.addAll(tweetList);
+        notifyDataSetChanged();
+    }
+
 
 
 
@@ -61,7 +74,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.Viewholder
         TextView tvScreenName;
         TextView tvUserName;
         TextView tvSymbole;
-        //TextView tvTimeStamp;
+        TextView tvTimeStamp;
         public Viewholder(@NonNull View itemView) {
             super(itemView);
             ivProfile = itemView.findViewById(R.id.ivProfile);
@@ -69,14 +82,14 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.Viewholder
             tvScreenName = itemView.findViewById(R.id.tvScreenName);
             tvUserName = itemView.findViewById(R.id.tvUserName);
             tvSymbole = itemView.findViewById(R.id.tvSymbole);
-         //   tvTimeStamp = itemView.findViewById(R.id.tvTimeStamp);
+            tvTimeStamp = itemView.findViewById(R.id.tvTimeStamp);
         }
 
         public void bind(Tweet tweet) {
             tvTweetBody.setText(tweet.body);
             tvScreenName.setText(tweet.user.name);
             tvUserName.setText(tweet.user.screenName);
-          //  tvTimeStamp.setText(tweet.createdAt);
+            tvTimeStamp.setText(tweet.createdAt);
             Glide.with(context).load(tweet.user.profileImageUrl)
                     .transform(new CircleCrop())
                     .into(ivProfile);
