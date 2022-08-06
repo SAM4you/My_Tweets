@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ander.apps.client.models.Tweet;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 
 import org.w3c.dom.Text;
 
@@ -58,18 +59,29 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.Viewholder
         ImageView ivProfile;
         TextView tvTweetBody;
         TextView tvScreenName;
+        TextView tvUserName;
+        TextView tvSymbole;
+        //TextView tvTimeStamp;
         public Viewholder(@NonNull View itemView) {
             super(itemView);
             ivProfile = itemView.findViewById(R.id.ivProfile);
             tvTweetBody = itemView.findViewById(R.id.tvTweetBody);
             tvScreenName = itemView.findViewById(R.id.tvScreenName);
+            tvUserName = itemView.findViewById(R.id.tvUserName);
+            tvSymbole = itemView.findViewById(R.id.tvSymbole);
+         //   tvTimeStamp = itemView.findViewById(R.id.tvTimeStamp);
         }
 
         public void bind(Tweet tweet) {
             tvTweetBody.setText(tweet.body);
-            tvScreenName.setText(tweet.user.screenName);
+            tvScreenName.setText(tweet.user.name);
+            tvUserName.setText(tweet.user.screenName);
+          //  tvTimeStamp.setText(tweet.createdAt);
             Glide.with(context).load(tweet.user.profileImageUrl)
+                    .transform(new CircleCrop())
                     .into(ivProfile);
         }
     }
 }
+
+

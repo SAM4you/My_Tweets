@@ -22,17 +22,57 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="3dp"
         android:layout_toEndOf="@id/ivProfile"
+        android:fontFamily="sans-serif"
+        android:textSize="16sp"
+        android:textStyle="bold"
         tools:text="SAM @samG" />
+
+    <TextView
+        android:id="@+id/tvSymbole"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="4dp"
+        android:layout_toEndOf="@id/tvScreenName"
+        android:fontFamily="sans-serif-light"
+        android:text=".@"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/tvSymbole"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="0dp"
+        android:textSize="14sp"
+        android:fontFamily="sans-serif-light"
+        tools:text="nfs_knmdis"
+
+        />
 
     <TextView
         android:id="@+id/tvTweetBody"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvScreenName"
+        android:layout_below="@id/tvUserName"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
         android:layout_toEndOf="@id/ivProfile"
-        android:layout_marginStart="8dp"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="14sp"
         tools:text="Hi Guys! Its my first Tweet!" />
+
+    <TextView
+        android:id="@+id/tvTimeStamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:textSize="12sp"
+        tools:text="10 ms"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="8dp"/>
 </RelativeLayout>
