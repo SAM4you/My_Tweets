@@ -20,7 +20,8 @@
             android:id="@+id/rvTimeline"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="0dp"/>
+            android:layout_margin="0dp"
+            android:background="@color/cardview_dark_background"/>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
