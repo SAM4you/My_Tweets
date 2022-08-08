@@ -15,12 +15,13 @@
         android:id="@+id/toolbar"
         android:minHeight="?attr/actionBarSize"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         app:titleTextColor="@android:color/white"
         android:backgroundTint="#2196F3"
         android:background="#2196F3"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
 
-        >
     </androidx.appcompat.widget.Toolbar>
 
 

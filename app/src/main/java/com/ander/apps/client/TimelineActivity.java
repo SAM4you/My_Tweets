@@ -8,6 +8,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 
 import com.ander.apps.client.models.Tweet;
 import com.bumptech.glide.load.engine.Initializable;
@@ -30,6 +31,7 @@ public class TimelineActivity extends AppCompatActivity {
     TweetsAdapter adapter;
     SwipeRefreshLayout swipeContainer;
     EndlessRecyclerViewScrollListener scrollListener;
+
     // Sets the Toolbar to act as the ActionBar for this Activity window.
     // Make sure the toolbar exists in the activity and is not null
 
@@ -41,6 +43,9 @@ public class TimelineActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.ic_app);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
 
          client = TwitterApplication.getRestClient(this);
 
@@ -81,6 +86,12 @@ public class TimelineActivity extends AppCompatActivity {
         rvTweets.addOnScrollListener(scrollListener);
 
          populateHomeTimeline();
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 
     private void loadMoreData() {

@@ -36,7 +36,7 @@
         android:id="@+id/tvSymbole"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="4dp"
         android:layout_toEndOf="@id/tvScreenName"
         android:fontFamily="sans-serif-light"
@@ -69,6 +69,18 @@
         android:fontFamily="sans-serif-medium"
         android:textSize="14sp"
         tools:text="Hi Guys! Its my first Tweet!" />
+    <ImageView
+        android:id="@+id/ivTweetImage"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/ivProfile"
+        android:layout_below="@id/tvTweetBody"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        tools:srcCompat="@tools:sample/avatars"
+        />
+
+
 
     <TextView
         android:id="@+id/tvTimeStamp"
