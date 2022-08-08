@@ -36,7 +36,7 @@ Here's a walkthrough of implemented user stories:
 
 <img src='https://github.com/SAM4you/My_Tweets/blob/master/My%20Tweets.gif' title='Video Walkthrough' width='250' alt='Video Walkthrough' />
 
-<img src='https://github.com/SAM4you/My_Tweets/blob/master/My%20Tweets%20Walthrough.gif' title='Video Walkthrough' width='250' alt='Video Walkthrough' />
+<img src='https://github.com/SAM4you/My_Tweets/blob/master/My%20Tweets%20Walkthrough.gif' title='Video Walkthrough' width='250' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
