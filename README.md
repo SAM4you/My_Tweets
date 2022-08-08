@@ -27,7 +27,8 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [X] App icon added!
+- [X] App icon added
+- [X] Floating Action Button added
 
 ## Video Walkthrough
 
