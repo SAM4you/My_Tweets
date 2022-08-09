@@ -35,7 +35,7 @@ The following **additional** features are implemented:
 Here's a walkthrough of implemented user stories:
 
 
-<img src='https://github.com/SAM4you/My_Tweets/blob/master/Twitter%20Walthrough.gif' title='Video Walkthrough' width='250' alt='Video Walkthrough' />
+<img src='https://github.com/SAM4you/My_Tweets/blob/master/My%20Tweets%20Walkthrough.gif' title='Video Walkthrough' width='250' alt='Video Walkthrough' />
 
 
 
