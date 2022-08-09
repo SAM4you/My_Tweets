@@ -12,11 +12,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.ander.apps.client.models.Tweet;
 import com.bumptech.glide.load.engine.Initializable;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,6 +38,7 @@ public class TimelineActivity extends AppCompatActivity {
     TweetsAdapter adapter;
     SwipeRefreshLayout swipeContainer;
     EndlessRecyclerViewScrollListener scrollListener;
+    FloatingActionButton fabCompose;
 
     // Sets the Toolbar to act as the ActionBar for this Activity window.
     // Make sure the toolbar exists in the activity and is not null
@@ -55,7 +59,8 @@ public class TimelineActivity extends AppCompatActivity {
          client = TwitterApplication.getRestClient(this);
 
 
-        swipeContainer = findViewById(R.id.swipeContainer);
+        fabCompose = findViewById(R.id.fabCompose);
+         swipeContainer = findViewById(R.id.swipeContainer);
         // Configure the refreshing colors
         swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
                 android.R.color.holo_green_light,
@@ -90,26 +95,37 @@ public class TimelineActivity extends AppCompatActivity {
         rvTweets.addOnScrollListener(scrollListener);
 
          populateHomeTimeline();
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.miCompose){
-            //Compose item selected
-            Toast.makeText(this, "Compose", Toast.LENGTH_SHORT).show();
-            //Navigate to compose activity
-            Intent intent = new Intent(this,ComposeActivity.class);
-            startActivity(intent);
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+
+         fabCompose.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
+                         .setAction("Action", null).show();
+                 startActivity( new Intent(TimelineActivity.this, ComposeActivity.class));
+             }
+         });
     }
+    //@Override
+   // public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+      //  getMenuInflater().inflate(R.menu.menu_main, menu);
+        //return true;
+   // }
+
+    //@Override
+ //   public boolean onOptionsItemSelected(@NonNull FloatingActionButton item) {
+   //     this.item = item;
+   //     if (item.getId() == R.id.fabCompose){
+            //Compose item selected
+         //   Toast.makeText(this, "Compose", Toast.LENGTH_SHORT).show();
+            //Navigate to compose activity
+    //        Intent intent = new Intent(this,ComposeActivity.class);
+     //       startActivity(intent);
+     //       return true;
+    //    }
+    //    return super.onOptionsItemSelected((MenuItem) item);
+  //  }
 
     private void loadMoreData() {
         // 1. Send an API request to retrieve appropriate paginated data

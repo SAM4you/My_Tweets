@@ -44,9 +44,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="0dp"
-                android:background="@color/cardview_dark_background"/>
+                android:background="@color/cardview_dark_background"
+                />
+
+
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabCompose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            android:src="@drawable/ic_compose"
+            app:layout_anchor="@id/rvTimeline"
+            app:layout_anchorGravity="bottom|right|end"
+            android:backgroundTint="#2196F3"
+            android:background="#2196F3"/>
+
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
