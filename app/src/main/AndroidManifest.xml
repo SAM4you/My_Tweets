@@ -16,6 +16,8 @@
         <activity
             android:name=".TimelineActivity"
             android:exported="false" />
+        <activity android:name=".TweetDetailsActivity"
+            android:exported="false"/>
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name"

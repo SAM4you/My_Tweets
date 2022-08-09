@@ -1,6 +1,7 @@
 package com.ander.apps.client;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import com.ander.apps.client.models.Tweet;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 
+import org.parceler.Parcels;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -67,7 +69,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.Viewholder
 
 
     // Define a viewholder
-    public class Viewholder extends RecyclerView.ViewHolder{
+    public class Viewholder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         ImageView ivProfile;
         TextView tvTweetBody;
@@ -86,6 +88,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.Viewholder
             tvSymbole = itemView.findViewById(R.id.tvSymbole);
             tvTimeStamp = itemView.findViewById(R.id.tvTimeStamp);
             //ivTweetImage = itemView.findViewById(R.id.ivTweetImage);
+            itemView.setOnClickListener(this);
         }
 
         public void bind(Tweet tweet) {
@@ -97,7 +100,26 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.Viewholder
                     .transform(new CircleCrop())
                     .into(ivProfile);
         }
+
+        @Override
+        public void onClick(View view) {
+            // gets item position
+            int position = getAdapterPosition();
+            // make sure the position is valid, i.e. actually exists in the view
+            if (position != RecyclerView.NO_POSITION) {
+                // get the movie at the position, this won't work if the class is static
+                Tweet tweet = tweets.get(position);
+                // create intent for the new activity
+                Intent intent = new Intent(context, TweetDetailsActivity.class);
+                // serialize the movie using parceler, use its short name as a key
+                intent.putExtra(Tweet.class.getSimpleName(), Parcels.wrap(tweet));
+                // show the activity
+                context.startActivity(intent);
+
+        }
     }
+}
+
 }
 
 
