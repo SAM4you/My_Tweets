@@ -2,6 +2,7 @@ package com.ander.apps.client;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -32,6 +33,14 @@ public class TweetDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tweet_details);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.ic_app);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         // resolve the view objects
         ivProfile = (ImageView) findViewById(R.id.ivProfile);
         tvScreenName = (TextView) findViewById(R.id.tvScreenName);
