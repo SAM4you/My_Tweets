@@ -1,6 +1,7 @@
 package com.ander.apps.client;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -23,6 +24,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +33,7 @@ import okhttp3.Headers;
 
 public class TimelineActivity extends AppCompatActivity {
     public static final String TAG = "TimelineActivity";
+    private final int REQUEST_CODE = 20;
 
     TwitterClient client;
     RecyclerView rvTweets;
@@ -104,26 +107,40 @@ public class TimelineActivity extends AppCompatActivity {
              }
          });
     }
-    //@Override
-   // public boolean onCreateOptionsMenu(Menu menu) {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-      //  getMenuInflater().inflate(R.menu.menu_main, menu);
-        //return true;
-   // }
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
 
-    //@Override
- //   public boolean onOptionsItemSelected(@NonNull FloatingActionButton item) {
-   //     this.item = item;
-   //     if (item.getId() == R.id.fabCompose){
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.miCompose){
             //Compose item selected
-         //   Toast.makeText(this, "Compose", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Compose", Toast.LENGTH_SHORT).show();
             //Navigate to compose activity
-    //        Intent intent = new Intent(this,ComposeActivity.class);
-     //       startActivity(intent);
-     //       return true;
-    //    }
-    //    return super.onOptionsItemSelected((MenuItem) item);
-  //  }
+            Intent intent = new Intent(this,ComposeActivity.class);
+            startActivityForResult(intent, REQUEST_CODE);
+            return true;
+        }
+        return super.onOptionsItemSelected((MenuItem) item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (requestCode == REQUEST_CODE && resultCode ==RESULT_OK){
+            // Get data from intent (tweet)
+            Tweet tweet = Parcels.unwrap(data.getParcelableExtra("tweet"));
+            // Update the RV with new tweet
+            // Modiy data source
+            tweets.add(0, tweet);
+            // Update Adapter
+            adapter.notifyItemInserted(0);
+            rvTweets.smoothScrollToPosition(0);
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 
     private void loadMoreData() {
         // 1. Send an API request to retrieve appropriate paginated data
