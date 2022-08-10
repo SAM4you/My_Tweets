@@ -100,8 +100,6 @@ public class TimelineActivity extends AppCompatActivity {
          fabCompose.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
-                 Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
-                         .setAction("Action", null).show();
                  startActivity( new Intent(TimelineActivity.this, ComposeActivity.class));
              }
          });
