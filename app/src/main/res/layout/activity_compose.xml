@@ -17,7 +17,7 @@
         android:layout_marginBottom="20dp"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="What's up Guys, This Tweet is posted from my own app using Twitter API Aouth"
+        android:hint="Your tweet!"
         android:inputType="textMultiLine"
         tools:layout_editor_absoluteX="153dp"
         tools:layout_editor_absoluteY="93dp" />

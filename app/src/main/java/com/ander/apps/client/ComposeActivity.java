@@ -58,7 +58,12 @@ public class ComposeActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 // Fires right after the text has changed
-                tvDisplay.setText(s.toString());
+                int l = s.length();
+                int c = 240 - l;
+
+                tvDisplay.setText(String.valueOf(c));
+
+                //tvDisplay.setText(s.toString());
             }
         });
 
@@ -76,7 +81,7 @@ public class ComposeActivity extends AppCompatActivity {
                 if (tweetContent.length() > MAX_TWEET_LENGTH){
                     Toast.makeText(ComposeActivity.this, "Sorry, your tweet is too long", Toast.LENGTH_LONG).show();
                 }
-                Toast.makeText(ComposeActivity.this, "", Toast.LENGTH_LONG).show();
+             //   Toast.makeText(ComposeActivity.this, "Tweet successfully posted", Toast.LENGTH_LONG).show();
                 // Make API call to Twitter
                 client.publishTweet(tweetContent, new JsonHttpResponseHandler() {
                     @Override

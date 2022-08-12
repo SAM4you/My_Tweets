@@ -133,7 +133,7 @@ public class TimelineActivity extends AppCompatActivity {
             // Get data from intent (tweet)
             Tweet tweet = Parcels.unwrap(data.getParcelableExtra("tweet"));
             // Update the RV with new tweet
-            // Modiy data source
+            // Modify data source
             tweets.add(0, tweet);
             // Update Adapter
             adapter.notifyItemInserted(0);
