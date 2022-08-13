@@ -24,7 +24,7 @@ import okhttp3.Headers;
 public class ComposeActivity extends AppCompatActivity {
 
     public static final String TAG = "ComposeActivity";
-    public static final int MAX_TWEET_LENGTH = 140;
+    public static final int MAX_TWEET_LENGTH = 280;
 
     EditText etCompose;
     Button btnPost;
@@ -59,11 +59,9 @@ public class ComposeActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
                 // Fires right after the text has changed
                 int l = s.length();
-                int c = 240 - l;
+                int c = 280 - l;
 
                 tvDisplay.setText(String.valueOf(c));
-
-                //tvDisplay.setText(s.toString());
             }
         });
 
@@ -81,7 +79,7 @@ public class ComposeActivity extends AppCompatActivity {
                 if (tweetContent.length() > MAX_TWEET_LENGTH){
                     Toast.makeText(ComposeActivity.this, "Sorry, your tweet is too long", Toast.LENGTH_LONG).show();
                 }
-             //   Toast.makeText(ComposeActivity.this, "Tweet successfully posted", Toast.LENGTH_LONG).show();
+                Toast.makeText(ComposeActivity.this, "Posting...", Toast.LENGTH_LONG).show();
                 // Make API call to Twitter
                 client.publishTweet(tweetContent, new JsonHttpResponseHandler() {
                     @Override
