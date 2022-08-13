@@ -103,8 +103,12 @@ public class TimelineActivity extends AppCompatActivity {
          fabCompose.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
-                 startActivity( new Intent(TimelineActivity.this, ComposeActivity.class));
+                 startActivityForResult( new Intent(TimelineActivity.this, ComposeActivity.class), REQUEST_CODE);
+
              }
+
+            // private void startActivityForResult(Intent intent, int REQUEST_CODE) {
+            // }
          });
     }
     @Override
@@ -114,7 +118,7 @@ public class TimelineActivity extends AppCompatActivity {
         return true;
     }
 
-    @Override
+  /*  @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.miCompose){
             //Compose item selected
@@ -125,7 +129,7 @@ public class TimelineActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected((MenuItem) item);
-    }
+    }*/
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
